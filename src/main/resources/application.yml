@@ -6,3 +6,8 @@ spring:
   cloud:
     config:
       fail-fast: true
+
+logging:
+  level:
+    org.springframework.web: WARN
+    com.optimagrowth: DEBUG
