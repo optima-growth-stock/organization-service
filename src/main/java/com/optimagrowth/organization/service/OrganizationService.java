@@ -26,11 +26,13 @@ public class OrganizationService {
 
     public Organization findById(String organizationId) {
         ScopedSpan span = tracer.startScopedSpan("getOrgDBCall");
+        span.event("Starting findById database query");
 
         Optional<Organization> opt = repository.findById(organizationId);
         simpleSource.publishOrganizationChange("GET", organizationId);
 
         span.tag("peer.service", "postgres");
+        span.event("Finishing findById database query");
         span.end();
 
         return (opt.isPresent()) ? opt.get() : null;
