@@ -17,6 +17,7 @@
     <properties>
         <java.version>11</java.version>
         <docker.image.prefix>ostock</docker.image.prefix>
+        <docker.image.version>${project.version}</docker.image.version>
         <spring-cloud.version>2021.0.3</spring-cloud.version>
     </properties>
 
@@ -137,7 +138,7 @@
                 <version>1.4.13</version>
                 <configuration>
                     <repository>${docker.image.prefix}/${project.artifactId}</repository>
-                    <tag>${project.version}</tag>
+                    <tag>${docker.image.version}</tag>
                     <buildArgs>
                         <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>

@@ -29,7 +29,7 @@ spec:
               value: configserver:http://configserver:8071
             - name: SPRING_PROFILES_ACTIVE
               value: prod
-          image: 072085842419.dkr.ecr.eu-west-1.amazonaws.com/ostock/organization-service:0.0.1
+          image: 072085842419.dkr.ecr.eu-west-1.amazonaws.com/ostock/organization-service:latest
           name: organizationservice
           ports:
             - containerPort: 8081
