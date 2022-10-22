@@ -27,8 +27,8 @@ node {
        }
    }
    stage('Kubernetes deploy') {
-       sshagent(['kubessh']) {
-           sh "ssh ec2-user@ec2-54-216-119-92.eu-west-1.compute.amazonaws.com kubectl apply -f organizationservice-deployment.yaml"
+       withCredentials([sshUserPrivateKey(credentialsId: 'kubessh', keyFileVariable: 'keyfile')]) {
+           sh "ssh -i ${keyfile} ec2-user@ec2-54-216-119-92.eu-west-1.compute.amazonaws.com kubectl apply -f organizationservice-deployment.yaml"
        }
    }
 }
